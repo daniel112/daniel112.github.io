@@ -1,8 +1,9 @@
-import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RootPage } from "./Pages/RootPage";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "./theme";
 
 const router = createBrowserRouter([
   {
@@ -13,13 +14,14 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ChakraProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Provider store={store}>
-        <Flex id="main" height={"100vh"} width={"100vw"}>
+        <Box id="main" height={"100vh"} width={"100vw"}>
           <RouterProvider router={router} />
-        </Flex>
+        </Box>
       </Provider>
-    </ChakraProvider>
+    </ThemeProvider>
   );
 }
 
