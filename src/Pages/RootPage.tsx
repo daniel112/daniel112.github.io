@@ -8,7 +8,8 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FC } from "react";
-import { MortgageCalculator } from "../features/mortgageCalculator/MortgageCalculator";
+
+import { Roomba } from "../features/roomba/Roomba";
 
 export const RootPage: FC = () => {
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -26,9 +27,9 @@ export const RootPage: FC = () => {
       </Button>
 
       <Dialog open={modalOpen} onClose={() => setModalOpen(false)}>
-        <DialogTitle>Mortgage Calculator</DialogTitle>
+        <DialogTitle>Roomba</DialogTitle>
         <DialogContent>
-          <MortgageCalculator />
+          <Roomba />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setModalOpen(false)}>Close</Button>
