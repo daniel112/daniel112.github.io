@@ -10,6 +10,7 @@ import React from "react";
 import { FC } from "react";
 
 import { Roomba } from "../features/roomba/Roomba";
+import { WeatherStatus } from "../features/weather/WeatherStatus";
 
 export const RootPage: FC = () => {
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -22,9 +23,10 @@ export const RootPage: FC = () => {
         alignItems: "center",
       }}
     >
-      <Button variant="contained" onClick={() => setModalOpen(true)}>
-        Mortgage Calculator
-      </Button>
+      <WeatherStatus />
+      {/* <Button variant="contained" onClick={() => setModalOpen(true)}>
+        Roomba
+      </Button> */}
 
       <Dialog open={modalOpen} onClose={() => setModalOpen(false)}>
         <DialogTitle>Roomba</DialogTitle>
