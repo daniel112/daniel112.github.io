@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import {
   Box,
   Container,
@@ -8,6 +9,7 @@ import {
   Typography,
   useTheme,
   Avatar,
+  Button,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import profileImg from "../assets/profile.png";
@@ -17,70 +19,89 @@ import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LanguageIcon from "@mui/icons-material/Language";
 import { Experience } from "../features/resume/Experience";
 import { Skills } from "../features/resume/Skills";
 import { Strengths } from "../features/resume/Strengths";
 import { Achievements } from "../features/resume/Achievements";
 import { OpenSourceContributions } from "../features/resume/OpenSourceContributions";
+import { useReactToPrint } from "react-to-print";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 
 export const RootPage: FC = () => {
+  const componentRef = useRef(null);
   const theme = useTheme();
+
+  const handlePrint = useReactToPrint({
+    contentRef: componentRef,
+    documentTitle: "Daniel_Yo_Resume",
+  });
+
   return (
     <Container maxWidth="lg" sx={{ paddingY: 4 }}>
-      <Paper elevation={3} sx={{ marginTop: 4, overflow: "hidden" }}>
-        <Grid container columns={12}>
-          <Grid size={{ xs: 12, md: 8 }} sx={{ padding: 4 }}>
-            <Profile />
-            <Divider sx={{ marginY: 2 }} />
-            <Experience />
-            <Divider sx={{ marginY: 2 }} />
-            <OpenSourceContributions />
-            <Divider sx={{ marginY: 2 }} />
-            <Education />
-          </Grid>
-          <Grid
-            size={{
-              xs: 12,
-              md: 4,
-            }}
-            sx={{
-              backgroundColor: theme.palette.primary.main,
-              padding: 4,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "flex-start", // This centers the content vertically
-            }}
-          >
-            <Avatar
-              src={profileImg}
-              alt="Profile Picture"
-              variant="square"
-              sx={{
-                width: 150,
-                height: 150,
-                borderRadius: "50%",
-                mb: 4,
-                border: `4px solid ${theme.palette.background.paper}`,
-                "& img": {
-                  objectFit: "fill",
-                },
+      <Button
+        color="primary"
+        onClick={() => handlePrint()}
+        startIcon={<PictureAsPdfIcon />}
+      >
+        Export to PDF
+      </Button>
+      <div ref={componentRef}>
+        <Paper elevation={3} sx={{ marginTop: 4, overflow: "hidden" }}>
+          <Grid container columns={12}>
+            <Grid size={{ xs: 12, md: 8 }} sx={{ padding: 4 }}>
+              <Profile />
+              <Divider sx={{ marginY: 2 }} />
+              <Experience />
+              <Divider sx={{ marginY: 2 }} />
+              <OpenSourceContributions />
+              <Divider sx={{ marginY: 2 }} />
+              <Education />
+            </Grid>
+            <Grid
+              size={{
+                xs: 12,
+                md: 4,
               }}
-            />
-            <Box
               sx={{
+                backgroundColor: theme.palette.primary.main,
+                padding: 4,
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
+                alignItems: "center",
+                justifyContent: "flex-start", // This centers the content vertically
               }}
             >
-              <Strengths />
-              <Skills />
-              <Achievements />
-            </Box>
+              <Avatar
+                src={profileImg}
+                alt="Profile Picture"
+                variant="square"
+                sx={{
+                  width: 150,
+                  height: 150,
+                  borderRadius: "50%",
+                  mb: 4,
+                  border: `4px solid ${theme.palette.background.paper}`,
+                  "& img": {
+                    objectFit: "fill",
+                  },
+                }}
+              />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
+              >
+                <Strengths />
+                <Skills />
+                <Achievements />
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
-      </Paper>
+        </Paper>
+      </div>
     </Container>
   );
 };
@@ -142,6 +163,16 @@ const Profile = () => {
           aria-label="GitHub"
         >
           <GitHubIcon />
+        </IconButton>
+        <IconButton
+          component={Link}
+          href="https://dpyo.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="primary"
+          aria-label="Personal Website"
+        >
+          <LanguageIcon />
         </IconButton>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <LocationOnIcon color="inherit" />
