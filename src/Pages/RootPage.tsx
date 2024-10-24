@@ -7,8 +7,10 @@ import {
   Paper,
   Typography,
   useTheme,
+  Avatar,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import profileImg from "../assets/profile.png";
 
 import { FC } from "react";
 import EmailIcon from "@mui/icons-material/Email";
@@ -19,6 +21,7 @@ import { Experience } from "../features/resume/Experience";
 import { Skills } from "../features/resume/Skills";
 import { Strengths } from "../features/resume/Strengths";
 import { Achievements } from "../features/resume/Achievements";
+import { OpenSourceContributions } from "../features/resume/OpenSourceContributions";
 
 export const RootPage: FC = () => {
   const theme = useTheme();
@@ -31,6 +34,8 @@ export const RootPage: FC = () => {
             <Divider sx={{ marginY: 2 }} />
             <Experience />
             <Divider sx={{ marginY: 2 }} />
+            <OpenSourceContributions />
+            <Divider sx={{ marginY: 2 }} />
             <Education />
           </Grid>
           <Grid
@@ -41,8 +46,27 @@ export const RootPage: FC = () => {
             sx={{
               backgroundColor: theme.palette.primary.main,
               padding: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "flex-start", // This centers the content vertically
             }}
           >
+            <Avatar
+              src={profileImg}
+              alt="Profile Picture"
+              variant="square"
+              sx={{
+                width: 150,
+                height: 150,
+                borderRadius: "50%",
+                mb: 4,
+                border: `4px solid ${theme.palette.background.paper}`,
+                "& img": {
+                  objectFit: "fill",
+                },
+              }}
+            />
             <Box
               sx={{
                 display: "flex",
