@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import fooReducer from "./reducers/fooReducer";
+import sidemenuReducer from "./reducers/sideMenuReducer";
 export const store = configureStore({
   reducer: {
-    foo: fooReducer,
+    sideMenu: sidemenuReducer,
   },
 });
 

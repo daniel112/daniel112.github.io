@@ -24,7 +24,8 @@ export const Strengths = () => {
           Technical proficiency:
         </Typography>
         <Typography variant="body2" color="onPrimary">
-          Expertise in React, React Native, microservices, Azure and automation.
+          Expertise in React, React Native, .NET, microservices, Azure and
+          automation.
         </Typography>
       </Box>
       <Box

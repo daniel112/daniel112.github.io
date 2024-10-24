@@ -3,8 +3,8 @@ import { Typography, Box, List, ListItem, Divider } from "@mui/material";
 const skills = [
   "JavaScript/TypeScript (React, React Native)",
   "Vite, Material UI, React Query, Redux Toolkit",
-  "Responsive Design",
   ".NET Development (C#, ASP.NET Core, Entity Framework Core, LINQ, Code First Database)",
+  "Responsive Design",
   "Microservices",
   "Cloud Development (Azure, AWS), Infrastructure as Code (Bicep), Containerization (Docker)",
   "People Management",

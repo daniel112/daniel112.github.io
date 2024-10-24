@@ -4,11 +4,18 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
-
+import { ResumePage } from "./Pages/ResumePage";
+import { PATH } from "./Navigation/path";
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: PATH.HOME,
     Component: RootPage,
+    children: [
+      {
+        path: PATH.RESUME,
+        Component: ResumePage,
+      },
+    ],
   },
 ]);
 
