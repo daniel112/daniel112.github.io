@@ -1,4 +1,5 @@
 import { Typography, Box, Stack, Divider } from "@mui/material";
+// @ts-ignore: SVG import is not recognized by TypeScript
 import { ReactComponent as IBMBadgeIcon } from "../../assets/ibm_badge.svg";
 import hackathonImage from "../../assets/neudesic_logo.jpeg";
 

@@ -11,29 +11,29 @@ const skills = [
   "Agile Methodologies",
 ];
 
-const cSharpSkills = [
-  "C#",
-  "Blazor",
-  "ASP.NET Core",
-  "Entity Framework Core",
-  "LINQ",
-  "Code First Database",
-];
+// const cSharpSkills = [
+//   "C#",
+//   "Blazor",
+//   "ASP.NET Core",
+//   "Entity Framework Core",
+//   "LINQ",
+//   "Code First Database",
+// ];
 
-const azureSkills = [
-  "Cosmos DB",
-  "Bicep (IaC)",
-  "Azure Container Registry",
-  "Azure DevOps",
-  "YML",
-  "Azure Functions",
-  "Azure Key Vault",
-  "Azure Static Web Apps",
-  "Azure Storage",
-  "Azure SQL",
-  "Azure App Service",
-  "Azure API Management",
-];
+// const azureSkills = [
+//   "Cosmos DB",
+//   "Bicep (IaC)",
+//   "Azure Container Registry",
+//   "Azure DevOps",
+//   "YML",
+//   "Azure Functions",
+//   "Azure Key Vault",
+//   "Azure Static Web Apps",
+//   "Azure Storage",
+//   "Azure SQL",
+//   "Azure App Service",
+//   "Azure API Management",
+// ];
 
 export const Skills = () => {
   return (
