@@ -1,14 +1,15 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { FC } from "react";
 
 import { motion } from "framer-motion";
-import { Box, useTheme } from "@mui/material";
+import { Box, Toolbar, useTheme } from "@mui/material";
 import { Navigation } from "../Navigation/Navigation";
 import { MenuToggle } from "../Navigation/MenuToggle";
 import { useDimensions } from "../hooks/useDimensions";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useSideMenu } from "../store/reducers/sideMenuReducer";
+import { PATH } from "../Navigation/path";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -61,8 +62,15 @@ export const RootPage: FC = () => {
     sideMenu,
     actions: { setOpen },
   } = useSideMenu();
-
+  const navigate = useNavigate();
   const isOpen = sideMenu.open;
+
+  useEffect(() => {
+    if (location.pathname === PATH.HOME) {
+      navigate(PATH.PROJECTS);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   return (
     <GradientBackground>
@@ -107,6 +115,7 @@ export const RootPage: FC = () => {
           transition: "margin-left 0.3s",
         }}
       >
+        <Toolbar />
         <Outlet />
       </Box>
     </GradientBackground>

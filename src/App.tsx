@@ -6,6 +6,8 @@ import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import { ResumePage } from "./Pages/ResumePage";
 import { PATH } from "./Navigation/path";
+import { ProjectsPage } from "./Pages/ProjectsPage";
+
 const router = createBrowserRouter([
   {
     path: PATH.HOME,
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: PATH.RESUME,
         Component: ResumePage,
+      },
+      {
+        path: PATH.PROJECTS,
+        Component: ProjectsPage,
       },
     ],
   },
