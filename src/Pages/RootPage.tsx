@@ -12,7 +12,7 @@ import {
   Button,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import profileImg from "../assets/profile.png";
+import profileImg from "../assets/profile_2.png";
 
 import { FC } from "react";
 import EmailIcon from "@mui/icons-material/Email";

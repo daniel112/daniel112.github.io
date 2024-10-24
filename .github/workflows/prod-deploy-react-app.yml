@@ -1,0 +1,34 @@
+name: Deploy React app to Azure Static Web Apps (Prod)
+
+env:
+  APP_LOCATION: "." # location of your client code
+  OUTPUT_LOCATION: "dist" # location of client code build output - relative to app location
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # allows manual execution through GH CLI, API or browser interface
+
+# permission granted as the GITHUB_TOKEN is concerned
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-env-react
+        with:
+          env: production
+      - name: Build And Deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_REACT_API_TOKEN_PROD }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: ${{ env.APP_LOCATION }}
+          output_location: ${{ env.OUTPUT_LOCATION }}
