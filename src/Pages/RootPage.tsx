@@ -31,29 +31,6 @@ const sidebar = {
   },
 };
 
-const GradientBackground: FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  // const theme = useTheme();
-
-  return (
-    <>
-      <Box
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: -1,
-          // background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 50%, ${theme.palette.secondary.main} 100%)`,
-        }}
-      />
-      <Box>{children}</Box>
-    </>
-  );
-};
-
 export const RootPage: FC = () => {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
@@ -73,8 +50,9 @@ export const RootPage: FC = () => {
   }, [location.pathname]);
 
   return (
-    <GradientBackground>
+    <>
       <Box
+        id="sidebar"
         component={motion.nav}
         initial={false}
         animate={isOpen ? "open" : "closed"}
@@ -87,9 +65,12 @@ export const RootPage: FC = () => {
           bottom: 0,
           width: "300px",
           zIndex: 1000,
+          pointerEvents: isOpen ? "auto" : "none",
+          // visibility: isOpen ? "visible" : "hidden",
         }}
       >
         <Box
+          id="sidebar-background"
           component={motion.div}
           sx={{
             position: "absolute",
@@ -97,7 +78,8 @@ export const RootPage: FC = () => {
             left: 0,
             bottom: 0,
             width: "100%",
-            backgroundColor: theme.palette.secondary.main,
+            // backgroundColor: theme.palette.secondary.main,
+            backgroundColor: "red",
             borderRight: `1px solid ${theme.palette.divider}`,
           }}
           variants={sidebar}
@@ -118,6 +100,6 @@ export const RootPage: FC = () => {
         <Toolbar />
         <Outlet />
       </Box>
-    </GradientBackground>
+    </>
   );
 };
