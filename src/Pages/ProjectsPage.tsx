@@ -10,7 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
-import { ProjectCategories } from "../features/projects/ProjectCategories";
+import { ProjectCategories } from "../features/projects/projectCategories/ProjectCategories";
 import {
   SocialMediaButton,
   SocialMediaButtonProps,
