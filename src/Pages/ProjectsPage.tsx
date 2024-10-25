@@ -4,12 +4,10 @@ import {
   Card,
   CardContent,
   Typography,
-  Avatar,
   useTheme,
   Container,
   useMediaQuery,
 } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
 import { ProjectCategories } from "../features/projects/projectCategories/ProjectCategories";
 import {
   SocialMediaButton,
@@ -64,14 +62,6 @@ export const ProjectsPage: React.FC = () => {
                 marginBottom: theme.spacing(2),
               }}
             >
-              <Avatar
-                sx={{
-                  bgcolor: theme.palette.success.main,
-                  marginRight: theme.spacing(1),
-                }}
-              >
-                <PersonIcon />
-              </Avatar>
               <Box
                 sx={{
                   display: "flex",

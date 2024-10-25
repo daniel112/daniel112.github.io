@@ -37,6 +37,47 @@ const data: ArchitectureData[] = [
     ],
   },
   {
+    title: ".NET Auth API Microservice",
+    description:
+      "UML flow diagram for a custom Auth API I worked on for a project utilizing EF Core and Azure KeyVault",
+    image: "/projectAssets/auth-microservice-arc.png", // from public folder
+    details: `
+    The goal of this project was to create a microservice for the Auth layer where Admins could manage users and roles granularly. Granting them specific roles and claims without having to mess with Azure AD.
+
+    The WebApp would call the Auth API during which it would validate the user and provide any additional roles or claims needed for that specific user for the given application.
+    `,
+    category: ProjectCategory.ARCHITECTURE,
+    technologies: ["Azure KeyVault", "EF Core", "MSSQL", "Swagger UI"],
+    architectureDiagramUrl:
+      "https://lucid.app/documents/embedded/7ae5aad4-6b1e-41de-a715-5a700b22b1e8",
+  },
+  {
+    title: "App Lifecycle Management Diagram",
+    description:
+      "An ALM diagram for an enterprise application I led showcasing the different stages of this particular product's lifecycle",
+    image: "/projectAssets/alm-arc.png", // from public folder
+    details: `
+    Having a clear visual representation of the different stages of the product lifecycle was crucial for this project due to the fact that this project is innersource and we want to allow other teams to contribute to the project.
+
+    Every stage has a clearly defined purpose and is represented by a different color and the last three stages have been fully automated to reduce manual overhead and developer error.
+    `,
+    category: ProjectCategory.ARCHITECTURE,
+    technologies: [
+      "Github Actions",
+      "Firebase Hosting",
+      "Azure Bicep",
+      "Azure App Service",
+      "Azure Static Web App",
+      "CosmosDB",
+      "Figma",
+      "Miro",
+      "Vitest",
+      "Xunit",
+    ],
+    architectureDiagramUrl:
+      "https://lucid.app/documents/embedded/74881fe3-a8e3-443b-9b96-7b4bb87c35b9",
+  },
+  {
     title: "B2B White Label SaaS App",
     description:
       "Early stage architecture diagram of a B2B app focusing on quick white label deploys",
