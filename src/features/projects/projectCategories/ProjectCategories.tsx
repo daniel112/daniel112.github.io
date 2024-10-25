@@ -3,6 +3,7 @@ import { Box, Grid2 as Grid } from "@mui/material";
 import { ProjectCategoryPill } from "../ProjectCategoryPill";
 import { ProjectCategory } from "../types";
 import { ArticlesPreview } from "./ArticlesPreview";
+import { ArchitecturePreview } from "./ArchitecturePreview";
 
 export const ProjectCategories: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>(
@@ -27,5 +28,10 @@ interface ProjectPreviewsProps {
   category: ProjectCategory;
 }
 const ProjectPreviews: React.FC<ProjectPreviewsProps> = ({ category }) => {
-  return <>{category === ProjectCategory.ARTICLES && <ArticlesPreview />}</>;
+  return (
+    <>
+      {category === ProjectCategory.ARTICLES && <ArticlesPreview />}
+      {category === ProjectCategory.ARCHITECTURE && <ArchitecturePreview />}
+    </>
+  );
 };

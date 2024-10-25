@@ -8,7 +8,7 @@ const data: ProjectData[] = [
       "I wrote this guide to help developers implement deep linking with push notifications in React Native apps, based on my experience at Knock.",
     image:
       "https://miro.medium.com/v2/da:true/resize:fit:1200/0*iOcPjfEZCfHEFZdT",
-    summary:
+    details:
       "In this article, I share my experience implementing deep linking with push notifications in React Native at Knock. I cover the entire process, from setting up custom URL schemes to handling deep links in various app states. My goal was to provide a clear, step-by-step guide that would save other developers time and frustration when tackling this complex feature.",
     category: ProjectCategory.ARTICLES,
     technologies: [Technology.REACT_NATIVE],
@@ -23,7 +23,7 @@ const data: ProjectData[] = [
       "I created this open-source library to bridge Kustomer's native SDKs with React Native, enabling real-time customer support in our mobile app at Knock.",
     image:
       "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg",
-    summary:
+    details:
       "In this article, I discuss the development of the kustomer-react-native library, which we created at Knock to integrate Kustomer's live chat and knowledge base features into our React Native mobile app. I explain our motivation for building this bridge between Kustomer's native SDKs and React Native, highlighting key features like push notification support. The library aims to simplify communication between agents and clients in React Native apps.",
     category: ProjectCategory.ARTICLES,
     technologies: [Technology.REACT_NATIVE],

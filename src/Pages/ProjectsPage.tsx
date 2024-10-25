@@ -50,7 +50,7 @@ export const ProjectsPage: React.FC = () => {
       maxWidth={false}
       disableGutters
       sx={{
-        width: isMobile ? "95%" : "80%",
+        width: isMobile ? "95%" : "70%",
         py: theme.spacing(2),
       }}
     >

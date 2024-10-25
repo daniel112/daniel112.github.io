@@ -7,7 +7,7 @@ export enum ProjectCategory {
 
 export interface ProjectData {
   title: string;
-  summary: string;
+  details?: string;
   description: string;
   image: string;
   category: ProjectCategory;

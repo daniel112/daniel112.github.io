@@ -11,10 +11,14 @@ import { UrlImagePreview } from "../../../components/UrlImagePreview";
 import { useState } from "react";
 
 interface ProjectPreviewCardProps extends ProjectData {
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLElement>) => void;
   ctaTitle: string;
 }
-
+/**
+ * A card that displays a project Preview.
+ * It has a hover effect that displays a banner with a custom title.
+ * Entire card is clickable.
+ */
 export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
   title,
   description,
@@ -28,7 +32,7 @@ export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
 
   return (
     <Card
-      elevation={0.5}
+      elevation={1}
       sx={{
         border: "1px solid",
         borderColor: "grey.300",
