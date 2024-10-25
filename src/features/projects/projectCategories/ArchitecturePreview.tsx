@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ProjectCategory, ProjectData } from "../types";
 import { ProjectPreviewCard } from "./ProjectPreviewCard";
 import { SimpleDialog } from "../../../components/dialogs/SimpleDialog";
-import { Grid2 as Grid, Typography, Box } from "@mui/material";
+import { Grid2 as Grid, Typography, Box, Skeleton } from "@mui/material";
 import { TechnologyChips } from "../TechnologyChips";
 
 interface ArchitectureData extends ProjectData {
@@ -74,15 +74,19 @@ const data: ArchitectureData[] = [
   },
 ];
 
+/**
+ * Shows an iframe of the architecture diagram and more details about the project
+ */
 export const ArchitecturePreview: React.FC = () => {
   const [selectedArchitecture, setSelectedArchitecture] =
     useState<ArchitectureData | null>(null);
-
+  const [isIframeLoading, setIsIframeLoading] = useState(true);
   const handleCardClick = (architecture: ArchitectureData) => {
     setSelectedArchitecture(architecture);
   };
 
   const handleCloseDialog = () => {
+    setIsIframeLoading(true);
     setSelectedArchitecture(null);
   };
 
@@ -105,14 +109,39 @@ export const ArchitecturePreview: React.FC = () => {
         {selectedArchitecture && (
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, md: 8 }}>
-              <iframe
-                width="100%"
-                height="600px"
-                src={selectedArchitecture.architectureDiagramUrl}
-                frameBorder="0"
-                scrolling="no"
-                allow="fullscreen; clipboard-read; clipboard-write"
-              />
+              <Box position="relative" height="600px" width="100%">
+                {isIframeLoading && (
+                  <Box
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    right="0"
+                    bottom="0"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    bgcolor="background.paper"
+                  >
+                    <Skeleton
+                      variant="rectangular"
+                      width="100%"
+                      height="100%"
+                    />
+                    <Skeleton width="100%" height={40} />
+                  </Box>
+                )}
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={selectedArchitecture.architectureDiagramUrl}
+                  frameBorder="0"
+                  scrolling="no"
+                  allow="fullscreen; clipboard-read; clipboard-write"
+                  onLoad={() => setIsIframeLoading(false)}
+                  style={{ visibility: isIframeLoading ? "hidden" : "visible" }}
+                />
+              </Box>
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
               <Box sx={{ p: 2, overflowY: "auto", height: "600px" }}>
