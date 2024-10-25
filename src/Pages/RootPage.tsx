@@ -11,7 +11,10 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useSideMenu } from "../store/reducers/sideMenuReducer";
 import { PATH } from "../Navigation/path";
 
-const sidebar = {
+/**
+ * Variants for the framer motion sidebar
+ */
+const sidebarVariants = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
     transition: {
@@ -27,6 +30,29 @@ const sidebar = {
       type: "spring",
       stiffness: 400,
       damping: 40,
+    },
+  },
+};
+
+/**
+ * Variants for the framer motion container
+ */
+const navContainerVariants = {
+  open: {
+    height: "100%",
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 30,
+    },
+  },
+  closed: {
+    height: "80px",
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 30,
+      delay: 0.2, // Delay to sync with the sidebar closing animation
     },
   },
 };
@@ -57,6 +83,7 @@ export const RootPage: FC = () => {
         initial={false}
         animate={isOpen ? "open" : "closed"}
         custom={height}
+        variants={navContainerVariants}
         ref={containerRef}
         sx={{
           position: "fixed",
@@ -66,6 +93,7 @@ export const RootPage: FC = () => {
           width: "300px",
           height: isOpen ? "100%" : "80px",
           zIndex: 1000,
+          overflow: "visible",
         }}
       >
         <Box
@@ -80,7 +108,7 @@ export const RootPage: FC = () => {
             backgroundColor: theme.palette.secondary.main,
             borderRight: `1px solid ${theme.palette.divider}`,
           }}
-          variants={sidebar}
+          variants={sidebarVariants}
         />
         <Navigation />
         <MenuToggle
