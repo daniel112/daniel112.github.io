@@ -107,7 +107,7 @@ export const ArchitecturePreview: React.FC = () => {
             <Grid size={{ xs: 12, md: 8 }}>
               <iframe
                 width="100%"
-                height="600"
+                height="600px"
                 src={selectedArchitecture.architectureDiagramUrl}
                 frameBorder="0"
                 scrolling="no"
@@ -115,7 +115,7 @@ export const ArchitecturePreview: React.FC = () => {
               />
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
-              <Box sx={{ p: 2 }}>
+              <Box sx={{ p: 2, overflowY: "auto", height: "600px" }}>
                 <Typography variant="h6" gutterBottom>
                   Technologies Used
                 </Typography>
