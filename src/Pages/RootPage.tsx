@@ -64,9 +64,8 @@ export const RootPage: FC = () => {
           left: 0,
           bottom: 0,
           width: "300px",
+          height: isOpen ? "100%" : "80px",
           zIndex: 1000,
-          pointerEvents: isOpen ? "auto" : "none",
-          // visibility: isOpen ? "visible" : "hidden",
         }}
       >
         <Box
@@ -78,8 +77,7 @@ export const RootPage: FC = () => {
             left: 0,
             bottom: 0,
             width: "100%",
-            // backgroundColor: theme.palette.secondary.main,
-            backgroundColor: "red",
+            backgroundColor: theme.palette.secondary.main,
             borderRight: `1px solid ${theme.palette.divider}`,
           }}
           variants={sidebar}
