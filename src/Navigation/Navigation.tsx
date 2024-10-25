@@ -12,9 +12,9 @@ export interface DrawerItemProps {
 }
 const drawerItems: DrawerItemProps[] = [
   {
-    text: "Home",
+    text: "Projects",
     MaterialIcon: <HomeIcon color="primary" />,
-    toPage: PATH.HOME,
+    toPage: PATH.PROJECTS,
   },
   {
     text: "Resume",

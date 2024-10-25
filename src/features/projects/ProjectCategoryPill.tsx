@@ -1,13 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Box, Button, useTheme } from "@mui/material";
+import { Button, Paper, useTheme } from "@mui/material";
+import { ProjectCategory } from "./types";
 
-export enum ProjectCategory {
-  APPS = "Apps",
-  OPEN_SOURCE = "Open Source",
-  ARCHITECTURE = "Architecture",
-  ARTICLES = "Articles",
-}
 interface ProjectCategoryPillProps {
   activeCategory: ProjectCategory;
   setActiveCategory: (category: ProjectCategory) => void;
@@ -20,13 +15,14 @@ export const ProjectCategoryPill: React.FC<ProjectCategoryPillProps> = ({
   const theme = useTheme();
 
   return (
-    <Box
+    <Paper
+      elevation={3}
       sx={{
+        width: "fit-content",
         display: "inline-flex",
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.secondary.main,
         borderRadius: "50px",
         padding: "5px",
-        boxShadow: theme.shadows[3],
       }}
     >
       {Object.values(ProjectCategory).map((category) => (
@@ -39,6 +35,7 @@ export const ProjectCategoryPill: React.FC<ProjectCategoryPillProps> = ({
             px: 2,
             py: 1,
             position: "relative",
+            fontWeight: activeCategory === category ? "bold" : "normal",
             color:
               activeCategory === category
                 ? theme.palette.primary.contrastText
@@ -69,6 +66,6 @@ export const ProjectCategoryPill: React.FC<ProjectCategoryPillProps> = ({
           {category}
         </Button>
       ))}
-    </Box>
+    </Paper>
   );
 };
