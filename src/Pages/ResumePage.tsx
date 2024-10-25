@@ -27,6 +27,7 @@ import { Achievements } from "../features/resume/Achievements";
 import { OpenSourceContributions } from "../features/resume/OpenSourceContributions";
 import { useReactToPrint } from "react-to-print";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { SOCIAL_MEDIA_URLS } from "../constants";
 
 export const ResumePage: FC = () => {
   const componentRef = useRef(null);
@@ -138,7 +139,7 @@ const Profile = () => {
       >
         <IconButton
           component={Link}
-          href="mailto:danielyo112@gmail.com"
+          href={`mailto:${SOCIAL_MEDIA_URLS.email}`}
           color="primary"
           aria-label="Email"
         >
@@ -146,7 +147,7 @@ const Profile = () => {
         </IconButton>
         <IconButton
           component={Link}
-          href="https://www.linkedin.com/in/daniel-yo/"
+          href={SOCIAL_MEDIA_URLS.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           sx={{ color: "#0077B5" }}
@@ -156,7 +157,7 @@ const Profile = () => {
         </IconButton>
         <IconButton
           component={Link}
-          href="https://github.com/daniel112"
+          href={SOCIAL_MEDIA_URLS.github}
           target="_blank"
           rel="noopener noreferrer"
           color="inherit"

@@ -11,6 +11,35 @@ import {
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import { ProjectCategories } from "../features/projects/ProjectCategories";
+import {
+  SocialMediaButton,
+  SocialMediaButtonProps,
+} from "../features/projects/SocialMediaButton";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
+import { SOCIAL_MEDIA_URLS } from "../constants";
+
+const socialMediaButtons: SocialMediaButtonProps[] = [
+  {
+    Icon: LinkedInIcon,
+    label: "LinkedIn",
+    color: "#0077B5",
+    url: SOCIAL_MEDIA_URLS.linkedin,
+  },
+  {
+    Icon: GitHubIcon,
+    label: "GitHub",
+    color: "#333",
+    url: SOCIAL_MEDIA_URLS.github,
+  },
+  {
+    Icon: EmailIcon,
+    label: "Email",
+    color: "#333",
+    url: SOCIAL_MEDIA_URLS.email,
+  },
+];
 
 export const ProjectsPage: React.FC = () => {
   const theme = useTheme();
@@ -21,13 +50,13 @@ export const ProjectsPage: React.FC = () => {
       maxWidth={false}
       disableGutters
       sx={{
-        width: isMobile ? "90%" : "80%",
-        my: theme.spacing(3),
+        width: isMobile ? "95%" : "80%",
+        py: theme.spacing(2),
       }}
     >
       <Card>
         <Box sx={{ backgroundColor: theme.palette.primary.main }}>
-          <CardContent>
+          <CardContent sx={{ py: isMobile ? 2 : 3 }}>
             <Box
               sx={{
                 display: "flex",
@@ -45,34 +74,28 @@ export const ProjectsPage: React.FC = () => {
               </Avatar>
               <Box
                 sx={{
-                  flexGrow: 1,
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "flex-start",
+                  gap: 2,
                 }}
               >
-                {[...Array(4)].map((_, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      width: "15%",
-                      height: 10,
-                      backgroundColor: theme.palette.grey[300],
-                    }}
-                  />
+                {socialMediaButtons.map((button, index) => (
+                  <SocialMediaButton key={index} {...button} />
                 ))}
               </Box>
             </Box>
             <Typography
-              variant="h4"
+              variant={isMobile ? "h5" : "h4"}
               fontWeight={"bold"}
               color={theme.palette.primary.contrastText}
+              sx={{ mb: isMobile ? 1 : 2 }}
             >
               Showcasing a portfolio of past and current projects
             </Typography>
             <Typography
-              variant="subtitle1"
-              width={"60%"}
-              marginY={2}
+              variant={isMobile ? "body2" : "subtitle1"}
+              width={isMobile ? "100%" : "70%"}
+              marginY={isMobile ? 1 : 2}
               color={theme.palette.primary.contrastText}
             >
               Throughout my career, I've had the privilege of working on a

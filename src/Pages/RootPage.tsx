@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { FC } from "react";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Box, Toolbar, useTheme } from "@mui/material";
 import { Navigation } from "../Navigation/Navigation";
 import { MenuToggle } from "../Navigation/MenuToggle";
@@ -14,7 +14,7 @@ import { PATH } from "../Navigation/path";
 /**
  * Variants for the framer motion sidebar
  */
-const sidebarVariants = {
+const sidebarVariants: Variants = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
     transition: {
@@ -37,7 +37,7 @@ const sidebarVariants = {
 /**
  * Variants for the framer motion container
  */
-const navContainerVariants = {
+const navContainerVariants: Variants = {
   open: {
     height: "100%",
     transition: {
@@ -107,6 +107,7 @@ export const RootPage: FC = () => {
             width: "100%",
             backgroundColor: theme.palette.secondary.main,
             borderRight: `1px solid ${theme.palette.divider}`,
+            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // shadow when opened
           }}
           variants={sidebarVariants}
         />

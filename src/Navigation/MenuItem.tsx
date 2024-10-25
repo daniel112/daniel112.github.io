@@ -30,8 +30,11 @@ export const MenuItem: FC<MenuItemProps> = ({ item }) => {
   const { text, MaterialIcon, toPage } = item;
   const navigate = useNavigate();
   const {
+    sideMenu,
     actions: { setOpen },
   } = useSideMenu();
+
+  if (!sideMenu.open) return null;
   return (
     <ListItemButton
       component={motion.li}
