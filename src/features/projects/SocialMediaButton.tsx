@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { SvgIconProps } from "@mui/material/SvgIcon";
 
 export interface SocialMediaButtonProps {
@@ -18,6 +18,9 @@ export const SocialMediaButton: React.FC<SocialMediaButtonProps> = ({
   color,
   url,
 }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box
       component="a"
@@ -28,9 +31,10 @@ export const SocialMediaButton: React.FC<SocialMediaButtonProps> = ({
         display: "flex",
         alignItems: "center",
         textDecoration: "none",
-        borderRadius: 1,
+        borderRadius: isMobile ? "50%" : 1,
         boxShadow: 1,
         backgroundColor: color,
+        overflow: "hidden",
         "&:hover": {
           boxShadow: 3,
         },
@@ -38,19 +42,27 @@ export const SocialMediaButton: React.FC<SocialMediaButtonProps> = ({
     >
       <Box
         sx={{
-          bgcolor: "black",
+          bgcolor: isMobile ? color : "black",
           p: 1,
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
+          width: isMobile ? 40 : "auto",
+          height: isMobile ? 40 : "auto",
         }}
       >
         <Icon sx={{ color: "white" }} />
       </Box>
-      <Box sx={{ bgcolor: color, p: 1, pl: 2, pr: 2 }}>
-        <Typography variant="body2" sx={{ color: "white", fontWeight: "bold" }}>
-          {label}
-        </Typography>
-      </Box>
+      {!isMobile && (
+        <Box sx={{ bgcolor: color, p: 1, pl: 2, pr: 2 }}>
+          <Typography
+            variant="body2"
+            sx={{ color: "white", fontWeight: "bold" }}
+          >
+            {label}
+          </Typography>
+        </Box>
+      )}
     </Box>
   );
 };
