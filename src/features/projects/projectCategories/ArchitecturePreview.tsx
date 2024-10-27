@@ -4,6 +4,7 @@ import { ProjectPreviewCard } from "./ProjectPreviewCard";
 import { SimpleDialog } from "../../../components/dialogs/SimpleDialog";
 import { Grid2 as Grid, Typography, Box, Skeleton } from "@mui/material";
 import { TechnologyChips } from "../TechnologyChips";
+import { useIsMobileWidth } from "../../../hooks/useIsMobileWidth";
 
 interface ArchitectureData extends ProjectData {
   architectureDiagramUrl: string;
@@ -125,6 +126,7 @@ export const ArchitecturePreview: React.FC = () => {
   const handleCardClick = (architecture: ArchitectureData) => {
     setSelectedArchitecture(architecture);
   };
+  const isMobileWidth = useIsMobileWidth();
 
   const handleCloseDialog = () => {
     setIsIframeLoading(true);
@@ -185,7 +187,13 @@ export const ArchitecturePreview: React.FC = () => {
               </Box>
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
-              <Box sx={{ p: 2, overflowY: "auto", height: "600px" }}>
+              <Box
+                sx={{
+                  p: 2,
+                  overflowY: isMobileWidth ? "inherit" : "auto",
+                  height: "600px",
+                }}
+              >
                 <Typography variant="h6" gutterBottom>
                   Technologies Used
                 </Typography>
