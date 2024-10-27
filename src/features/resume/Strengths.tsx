@@ -24,8 +24,10 @@ export const Strengths = () => {
           Technical proficiency:
         </Typography>
         <Typography variant="body2" color="onPrimary">
-          Expertise in React, React Native, .NET, microservices, Azure and
-          automation.
+          Expertise in modern web and mobile development: React, React Native
+          and .NET. Proficient in cloud-native architectures using Azure and
+          AWS, with strong skills in microservices, containerization, and
+          infrastructure as code.
         </Typography>
       </Box>
       <Box
@@ -45,8 +47,10 @@ export const Strengths = () => {
           Leadership:
         </Typography>
         <Typography variant="body2" color="onPrimary">
-          Proven ability to lead teams and manage projects. Provide mentorship
-          and guidance to multiple direct reports.
+          Exceptional engineering leader, driving complex projects to success.
+          Skilled mentor, fostering team growth and elevating performance.
+          Proven ability to develop top talent and accelerate career
+          progression.
         </Typography>
       </Box>
       <Box

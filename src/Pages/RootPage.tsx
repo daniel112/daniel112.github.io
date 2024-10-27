@@ -10,6 +10,7 @@ import { useDimensions } from "../hooks/useDimensions";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useSideMenu } from "../store/reducers/sideMenuReducer";
 import { PATH } from "../Navigation/path";
+import StarryBackground from "../components/StarryBackground";
 
 /**
  * Variants for the framer motion sidebar
@@ -77,6 +78,7 @@ export const RootPage: FC = () => {
 
   return (
     <>
+      <StarryBackground />
       <Box
         id="sidebar"
         component={motion.nav}
@@ -105,7 +107,7 @@ export const RootPage: FC = () => {
             left: 0,
             bottom: 0,
             width: "100%",
-            backgroundColor: theme.palette.secondary.main,
+            backgroundColor: theme.palette.secondary.dark,
             borderRight: `1px solid ${theme.palette.divider}`,
             boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // shadow when opened
           }}

@@ -41,6 +41,7 @@ export const ResumePage: FC = () => {
   return (
     <Container maxWidth="lg" sx={{ paddingY: 4 }}>
       <Button
+        variant="contained"
         color="primary"
         onClick={() => handlePrint()}
         startIcon={<PictureAsPdfIcon />}
@@ -50,7 +51,13 @@ export const ResumePage: FC = () => {
       <div ref={componentRef}>
         <Paper elevation={3} sx={{ marginTop: 4, overflow: "hidden" }}>
           <Grid container columns={12}>
-            <Grid size={{ xs: 12, md: 8 }} sx={{ padding: 4 }}>
+            <Grid
+              size={{ xs: 12, md: 8 }}
+              sx={{
+                padding: 4,
+                backgroundColor: theme.palette.grey[50], // Add this line for off-white color
+              }}
+            >
               <Profile />
               <Divider sx={{ marginY: 2 }} />
               <Experience />
@@ -110,13 +117,13 @@ export const ResumePage: FC = () => {
 const Education = () => {
   return (
     <Box>
-      <Typography variant="h5" fontWeight="bold" gutterBottom>
+      <Typography variant="h5" fontWeight="bold" gutterBottom color="grey.900">
         Education
       </Typography>
-      <Typography variant="body2">
+      <Typography variant="body2" color="grey.800">
         B.S. in Computer Science - Arizona State University | 2013 - 2017
       </Typography>
-      <Typography variant="body2">
+      <Typography variant="body2" color="grey.800">
         Computer Gaming Certificate - Arizona State University | 2013 - 2017
       </Typography>
     </Box>
@@ -126,10 +133,10 @@ const Education = () => {
 const Profile = () => {
   return (
     <Box>
-      <Typography variant="h4" fontWeight="bold">
+      <Typography variant="h4" fontWeight="bold" color="grey.900">
         Daniel Yo
       </Typography>
-      <Typography variant="h6" color="textSecondary">
+      <Typography variant="h6" color="grey.800">
         Full Stack Engineer | Engineering Manager | Front-end Specialist
       </Typography>
       <Box
@@ -140,7 +147,7 @@ const Profile = () => {
         <IconButton
           component={Link}
           href={`mailto:${SOCIAL_MEDIA_URLS.email}`}
-          color="primary"
+          color="secondary"
           aria-label="Email"
         >
           <EmailIcon />
@@ -159,8 +166,8 @@ const Profile = () => {
           component={Link}
           href={SOCIAL_MEDIA_URLS.github}
           target="_blank"
+          color="secondary"
           rel="noopener noreferrer"
-          color="inherit"
           aria-label="GitHub"
         >
           <GitHubIcon />
@@ -170,19 +177,19 @@ const Profile = () => {
           href="https://dpyo.xyz"
           target="_blank"
           rel="noopener noreferrer"
-          color="primary"
+          color="secondary"
           aria-label="Personal Website"
         >
           <LanguageIcon />
         </IconButton>
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <LocationOnIcon color="inherit" />
-          <Typography variant="body2" color="text.secondary" sx={{ ml: 0.5 }}>
+          <LocationOnIcon color="secondary" />
+          <Typography variant="body2" color="grey.800" sx={{ ml: 0.5 }}>
             Queen Creek, AZ
           </Typography>
         </Box>
       </Box>
-      <Typography paragraph>
+      <Typography paragraph color="grey.800">
         Language-agnostic Software Engineer, proficient in various technologies
         and domains, including Native Mobile, Native Web, PWA, AI technologies,
         Cloud technologies, etc. Dedicated to improving development experiences

@@ -23,7 +23,7 @@ const data: ArchitectureData[] = [
     `,
     architectureDiagramUrl:
       "https://miro.com/app/embed/uXjVLRXUv-U=/?pres=1&frameId=3458764604658780043&embedId=627782529189",
-    category: ProjectCategory.ARCHITECTURE,
+    category: ProjectCategory.DIAGRAMS,
     technologies: [
       "OpenAI Whisper",
       "OpenAI GPT3-5",
@@ -39,14 +39,14 @@ const data: ArchitectureData[] = [
   {
     title: ".NET Auth API Microservice",
     description:
-      "UML flow diagram for a custom Auth API I worked on for a project utilizing EF Core and Azure KeyVault",
+      "Microservice sequence diagram for a custom Auth API I worked on for a project utilizing EF Core and Azure KeyVault",
     image: "/projectAssets/auth-microservice-arc.png", // from public folder
     details: `
     The goal of this project was to create a microservice for the Auth layer where Admins could manage users and roles granularly. Granting them specific roles and claims without having to mess with Azure AD.
 
     The WebApp would call the Auth API during which it would validate the user and provide any additional roles or claims needed for that specific user for the given application.
     `,
-    category: ProjectCategory.ARCHITECTURE,
+    category: ProjectCategory.DIAGRAMS,
     technologies: ["Azure KeyVault", "EF Core", "MSSQL", "Swagger UI"],
     architectureDiagramUrl:
       "https://lucid.app/documents/embedded/7ae5aad4-6b1e-41de-a715-5a700b22b1e8",
@@ -61,7 +61,7 @@ const data: ArchitectureData[] = [
 
     Every stage has a clearly defined purpose and is represented by a different color and the last three stages have been fully automated to reduce manual overhead and developer error.
     `,
-    category: ProjectCategory.ARCHITECTURE,
+    category: ProjectCategory.DIAGRAMS,
     technologies: [
       "Github Actions",
       "Firebase Hosting",
@@ -97,7 +97,7 @@ const data: ArchitectureData[] = [
     3. External Services:
        - Sentry: Used for analytics and logging, providing error tracking and performance monitoring
     `,
-    category: ProjectCategory.ARCHITECTURE,
+    category: ProjectCategory.DIAGRAMS,
     technologies: [
       "AWS",
       "MySQL",

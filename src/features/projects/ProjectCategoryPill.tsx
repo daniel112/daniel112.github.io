@@ -24,9 +24,11 @@ export const ProjectCategoryPill: React.FC<ProjectCategoryPillProps> = ({
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: "#022524",
         borderRadius: isMobile ? "20px" : "30px",
         padding: isMobile ? "2px" : "3px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       }}
     >
       {Object.values(ProjectCategory).map((category) => (
@@ -74,7 +76,8 @@ export const ProjectCategoryPill: React.FC<ProjectCategoryPillProps> = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor:
+                    activeCategory === category ? "#0f7694" : "#05958",
                   borderRadius: isMobile ? "18px" : "25px",
                   zIndex: -1,
                 }}

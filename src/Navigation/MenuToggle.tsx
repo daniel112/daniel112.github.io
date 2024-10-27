@@ -8,7 +8,7 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => {
     <motion.path
       fill="transparent"
       strokeWidth="3"
-      stroke={theme.palette.primary.main}
+      stroke={theme.palette.primary.light}
       strokeLinecap="round"
       {...props}
     />

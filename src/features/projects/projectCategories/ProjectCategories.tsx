@@ -31,7 +31,7 @@ const ProjectPreviews: React.FC<ProjectPreviewsProps> = ({ category }) => {
   return (
     <>
       {category === ProjectCategory.ARTICLES && <ArticlesPreview />}
-      {category === ProjectCategory.ARCHITECTURE && <ArchitecturePreview />}
+      {category === ProjectCategory.DIAGRAMS && <ArchitecturePreview />}
     </>
   );
 };

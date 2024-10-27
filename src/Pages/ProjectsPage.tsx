@@ -52,7 +52,7 @@ export const ProjectsPage: React.FC = () => {
         py: theme.spacing(2),
       }}
     >
-      <Card>
+      <Card sx={{ border: `1px solid ${theme.palette.divider}` }}>
         <Box sx={{ backgroundColor: theme.palette.primary.main }}>
           <CardContent sx={{ py: isMobile ? 2 : 3 }}>
             <Box

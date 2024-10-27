@@ -3,7 +3,7 @@ import { Typography, Box } from "@mui/material";
 const experiences = [
   {
     role: "Principal Software Consultant II",
-    company: "Neudesic, an IBM Company (Software Consulting)",
+    company: "Neudesic (IBM Software Consulting)",
     location: "Remote",
     duration: "June 2022 - Current",
     description: [
@@ -16,16 +16,16 @@ const experiences = [
       "Developed and led technical workshops to upskill existing team members in React, Azure, .NET and modern software architecture patterns.",
     ],
   },
-  {
-    role: "Mobile Software Engineer (Volunteer)",
-    company: "Poolsuite FM (Music Streaming)",
-    location: "Remote",
-    duration: "May 2022 - April 2023",
-    description: [
-      "Led the rewrite of the Poolsuite FM app, improving user experience and cross-platform consistency.",
-      "Coordinated and managed collaboration between frontend (React-Native) and backend team, ensuring seamless data integration with SoundCloud.",
-    ],
-  },
+  // {
+  //   role: "Mobile Software Engineer (Volunteer)",
+  //   company: "Poolsuite FM (Music Streaming)",
+  //   location: "Remote",
+  //   duration: "May 2022 - April 2023",
+  //   description: [
+  //     "Led the rewrite of the Poolsuite FM app, improving user experience and cross-platform consistency.",
+  //     "Coordinated and managed collaboration between frontend (React-Native) and backend team, ensuring seamless data integration with SoundCloud.",
+  //   ],
+  // },
   {
     role: "Senior Mobile Software Engineer",
     company: "Knock (FinTech Startup)",
@@ -67,19 +67,19 @@ const experiences = [
 export const Experience = () => {
   return (
     <Box>
-      <Typography variant="h5" fontWeight="bold" gutterBottom>
+      <Typography variant="h5" fontWeight="bold" gutterBottom color="grey.900">
         Experience
       </Typography>
       {experiences.map((exp, index) => (
         <Box key={index} marginBottom={2}>
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h6" fontWeight="bold" color="grey.900">
             {exp.role} - {exp.company}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="grey.800">
             {exp.location} | {exp.duration}
           </Typography>
           {exp.description.map((desc, idx) => (
-            <Typography key={idx} variant="body2">
+            <Typography key={idx} variant="body2" color="grey.800">
               • {desc}
             </Typography>
           ))}

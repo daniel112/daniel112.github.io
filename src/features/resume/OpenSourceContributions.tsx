@@ -31,15 +31,17 @@ const contributions: Contribution[] = [
 export const OpenSourceContributions: React.FC = () => {
   return (
     <Box>
-      <Typography variant="h5" fontWeight="bold" gutterBottom>
+      <Typography variant="h5" fontWeight="bold" gutterBottom color="grey.900">
         Open Source Contributions
       </Typography>
       {contributions.map((contribution, index) => (
         <Box key={index} sx={{ mb: 2 }}>
-          <Typography variant="subtitle1" fontWeight="bold">
+          <Typography variant="subtitle1" fontWeight="bold" color="grey.900">
             {contribution.project}
           </Typography>
-          <Typography variant="body2">{contribution.description}</Typography>
+          <Typography variant="body2" color="grey.800">
+            {contribution.description}
+          </Typography>
           <Link
             href={contribution.link}
             target="_blank"
