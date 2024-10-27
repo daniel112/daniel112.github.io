@@ -10,6 +10,7 @@ import {
   useTheme,
   Avatar,
   Button,
+  useMediaQuery,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import profileImg from "../assets/profile_2.png";
@@ -33,6 +34,7 @@ export const ResumePage: FC = () => {
   const componentRef = useRef(null);
   const theme = useTheme();
   const [isPrintMode, setIsPrintMode] = useState(false);
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
@@ -62,15 +64,18 @@ export const ResumePage: FC = () => {
 
   return (
     <Container maxWidth="lg" sx={{ paddingY: 4 }}>
-      <Button
-        disabled={isPrintMode}
-        variant="contained"
-        color="primary"
-        onClick={triggerPrint}
-        startIcon={<PictureAsPdfIcon />}
-      >
-        Export to PDF
-      </Button>
+      {!isMobile && (
+        <Button
+          disabled={isPrintMode}
+          variant="contained"
+          color="primary"
+          onClick={triggerPrint}
+          startIcon={<PictureAsPdfIcon />}
+        >
+          Export to PDF
+        </Button>
+      )}
+
       <div ref={componentRef}>
         <Paper
           elevation={3}
