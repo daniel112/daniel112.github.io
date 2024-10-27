@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   Box,
   Container,
@@ -32,30 +32,56 @@ import { SOCIAL_MEDIA_URLS } from "../constants";
 export const ResumePage: FC = () => {
   const componentRef = useRef(null);
   const theme = useTheme();
+  const [isPrintMode, setIsPrintMode] = useState(false);
 
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
     documentTitle: "Daniel_Yo_Resume",
+    onBeforePrint: async () => {
+      setIsPrintMode(true);
+    },
+    onAfterPrint: () => {
+      setIsPrintMode(false);
+    },
   });
+
+  useEffect(() => {
+    if (isPrintMode) {
+      // Add a small delay to ensure the component has re-rendered
+      const timeoutId = setTimeout(() => {
+        handlePrint();
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isPrintMode, handlePrint]);
+
+  const triggerPrint = () => {
+    setIsPrintMode(true);
+  };
 
   return (
     <Container maxWidth="lg" sx={{ paddingY: 4 }}>
       <Button
+        disabled={isPrintMode}
         variant="contained"
         color="primary"
-        onClick={() => handlePrint()}
+        onClick={triggerPrint}
         startIcon={<PictureAsPdfIcon />}
       >
         Export to PDF
       </Button>
       <div ref={componentRef}>
-        <Paper elevation={3} sx={{ marginTop: 4, overflow: "hidden" }}>
+        <Paper
+          elevation={3}
+          sx={{ marginTop: isPrintMode ? 0 : 4, overflow: "hidden" }}
+        >
           <Grid container columns={12}>
             <Grid
-              size={{ xs: 12, md: 8 }}
+              size={{ xs: isPrintMode ? 8 : 12, md: 8 }}
               sx={{
                 padding: 4,
-                backgroundColor: theme.palette.grey[50], // Add this line for off-white color
+                backgroundColor: theme.palette.grey[50],
               }}
             >
               <Profile />
@@ -68,7 +94,7 @@ export const ResumePage: FC = () => {
             </Grid>
             <Grid
               size={{
-                xs: 12,
+                xs: isPrintMode ? 4 : 12,
                 md: 4,
               }}
               sx={{
@@ -77,7 +103,7 @@ export const ResumePage: FC = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "flex-start", // This centers the content vertically
+                justifyContent: "flex-start",
               }}
             >
               <Avatar
