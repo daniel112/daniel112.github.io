@@ -10,11 +10,14 @@ import {
 import { ProjectData } from "../types";
 import { UrlImagePreview } from "../../../components/UrlImagePreview";
 import { useState } from "react";
+import { TechnologyChips } from "../TechnologyChips";
 
 interface ProjectPreviewCardProps extends ProjectData {
   onClick: (event: React.MouseEvent<HTMLElement>) => void;
-  ctaTitle: string;
+  ctaTitle?: string;
   sx?: SxProps;
+  showPreviewChips?: boolean;
+  maxPreviewChip?: number;
 }
 /**
  * A card that displays a project Preview.
@@ -27,6 +30,9 @@ export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
   image,
   onClick,
   ctaTitle = "View Project",
+  technologies,
+  showPreviewChips = false,
+  maxPreviewChip,
   sx,
 }) => {
   const theme = useTheme();
@@ -73,6 +79,9 @@ export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
       <CardContent sx={{ display: "flex", flexDirection: "column" }}>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body2">{description}</Typography>
+        {showPreviewChips && (
+          <TechnologyChips technologies={technologies} max={maxPreviewChip} />
+        )}
       </CardContent>
     </Card>
   );

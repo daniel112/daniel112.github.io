@@ -4,6 +4,7 @@ import { ProjectCategoryPill } from "../ProjectCategoryPill";
 import { ProjectCategory } from "../types";
 import { ArticlesPreview } from "./ArticlesPreview";
 import { ArchitecturePreview } from "./ArchitecturePreview";
+import { AppsPreview } from "./AppsPreview";
 
 export const ProjectCategories: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>(
@@ -32,6 +33,7 @@ const ProjectPreviews: React.FC<ProjectPreviewsProps> = ({ category }) => {
     <>
       {category === ProjectCategory.ARTICLES && <ArticlesPreview />}
       {category === ProjectCategory.DIAGRAMS && <ArchitecturePreview />}
+      {category === ProjectCategory.APPS && <AppsPreview />}
     </>
   );
 };
