@@ -5,6 +5,7 @@ import {
   useTheme,
   useMediaQuery,
   Box,
+  SxProps,
 } from "@mui/material";
 import { ProjectData } from "../types";
 import { UrlImagePreview } from "../../../components/UrlImagePreview";
@@ -13,6 +14,7 @@ import { useState } from "react";
 interface ProjectPreviewCardProps extends ProjectData {
   onClick: (event: React.MouseEvent<HTMLElement>) => void;
   ctaTitle: string;
+  sx?: SxProps;
 }
 /**
  * A card that displays a project Preview.
@@ -25,6 +27,7 @@ export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
   image,
   onClick,
   ctaTitle = "View Project",
+  sx,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -42,6 +45,7 @@ export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
         "&:hover": {
           boxShadow: theme.shadows[4],
         },
+        ...sx,
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
