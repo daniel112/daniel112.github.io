@@ -86,6 +86,20 @@ const theme = createTheme({
     divider: "#153B47",
   },
   components: {
+    MuiCssBaseline: {
+      // override for dangerouslySetInnerHTML
+      styleOverrides: {
+        a: {
+          color: "#1976d2",
+          "&:hover": {
+            color: "#ff4081",
+          },
+        },
+        p: {
+          marginBottom: "16px",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
