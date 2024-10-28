@@ -1,10 +1,11 @@
-import { Grid2 as Grid, Box, Typography, useTheme } from "@mui/material";
+import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { SimpleDialog } from "../../../components/dialogs/SimpleDialog";
 import { TechnologyChips } from "../TechnologyChips";
 import { ProjectCategory, ProjectData } from "../types";
 import { ProjectPreviewCard } from "./ProjectPreviewCard";
 import { useState } from "react";
 import { useIsMobileWidth } from "../../../hooks/useIsMobileWidth";
+import { HorizontalImageList } from "../../../components/imageDisplay/HorizontalImageList";
 
 interface AppData extends ProjectData {
   appImages: string[];
@@ -13,14 +14,11 @@ interface AppData extends ProjectData {
 const data: AppData[] = [
   {
     appImages: [
-      "/projectAssets/apps/homepro/homepage.png",
-      "/projectAssets/apps/homepro/img2.png",
-      "/projectAssets/apps/homepro/img3.png",
-      "/projectAssets/apps/homepro/img4.png",
-      "/projectAssets/apps/homepro/img5.png",
-      "/projectAssets/apps/homepro/img6.png",
-      "/projectAssets/apps/homepro/img7.png",
-      "/projectAssets/apps/homepro/img8.png",
+      "/projectAssets/apps/alchemy/img1.png",
+      "/projectAssets/apps/alchemy/img2.png",
+      "/projectAssets/apps/alchemy/img3.png",
+      "/projectAssets/apps/alchemy/img4.png",
+      "/projectAssets/apps/alchemy/img5.png",
     ],
     title: "Web: Alchemy Employee Tool",
     description:
@@ -44,7 +42,7 @@ const data: AppData[] = [
     - READMEs
     - SPIKE Docs
     `,
-    image: "/projectAssets/apps/homepro/image.png",
+    image: "/projectAssets/apps/alchemy/image.png",
     category: ProjectCategory.APPS,
     technologies: [
       "React",
@@ -123,39 +121,6 @@ The team successfully delivered the Minimum Viable Product (MVP) within a three-
   },
 ];
 
-const ImagesDisplay = ({ images }: { images: string[] }) => {
-  const theme = useTheme();
-
-  return (
-    <>
-      <Box
-        height="100%"
-        width="100%"
-        sx={{
-          display: "flex",
-          gap: 2,
-          overflowX: "scroll",
-          backgroundColor: theme.palette.primary.dark,
-        }}
-      >
-        {images.map((image, index) => {
-          return (
-            <Box
-              key={index}
-              component={"img"}
-              src={image}
-              sx={{
-                cursor: "pointer",
-              }}
-              onClick={() => window.open(image)}
-            />
-          );
-        })}
-      </Box>
-    </>
-  );
-};
-
 export const AppsPreview = () => {
   const [selectedApp, setSelectedApp] = useState<AppData | null>(null);
   const isMobileWidth = useIsMobileWidth();
@@ -193,7 +158,7 @@ export const AppsPreview = () => {
                 height={isMobileWidth ? "400px" : "600px"}
                 width="100%"
               >
-                <ImagesDisplay images={selectedApp.appImages} />
+                <HorizontalImageList images={selectedApp.appImages} />
               </Box>
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
