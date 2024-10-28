@@ -2,6 +2,7 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
+  DialogProps,
   DialogTitle,
   IconButton,
   Slide,
@@ -9,7 +10,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import { TransitionProps } from "@mui/material/transitions";
 
-interface SimpleDialogProps {
+interface SimpleDialogProps extends DialogProps {
   open: boolean;
   onClose: () => void;
   title: string;
@@ -32,6 +33,7 @@ export const SimpleDialog: React.FC<SimpleDialogProps> = ({
   title,
   children,
   maxWidth = "md",
+  ...dialogProps
 }) => {
   return (
     <Dialog
@@ -43,6 +45,7 @@ export const SimpleDialog: React.FC<SimpleDialogProps> = ({
       aria-describedby="simple-dialog-description"
       fullWidth
       maxWidth={maxWidth}
+      {...dialogProps}
     >
       <DialogTitle id="simple-dialog-title">
         {title}

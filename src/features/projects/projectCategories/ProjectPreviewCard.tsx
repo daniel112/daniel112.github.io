@@ -80,7 +80,10 @@ export const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body2">{description}</Typography>
         {showPreviewChips && (
-          <TechnologyChips technologies={technologies} max={maxPreviewChip} />
+          <>
+            <Box pb={2} />
+            <TechnologyChips technologies={technologies} max={maxPreviewChip} />
+          </>
         )}
       </CardContent>
     </Card>
