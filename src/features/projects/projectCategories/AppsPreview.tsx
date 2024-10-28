@@ -100,6 +100,43 @@ const data: AppData[] = [
   },
   {
     appImages: [
+      "/projectAssets/apps/wedding/img1.png",
+      "/projectAssets/apps/wedding/img2.png",
+      "/projectAssets/apps/wedding/img3.png",
+      "/projectAssets/apps/wedding/img4.png",
+      "/projectAssets/apps/wedding/img5.png",
+    ],
+    title: "Web: My Wedding App",
+    description:
+      "I gamified my own wedding by creating a mobile friendly web application where attendees can take unique personalized photos from their perspectives.",
+    details: `
+    From my experience attending medium to large-sized weddings, I sometimes feel a bit awkward or unsure about what to do as a guest. While I understand that the day is not about the attendees, I can’t help but wonder if there’s a way to make the experience more engaging from guests' perspective rather than solely through the lens of the professional photographers.
+
+    In this day and age, everyone has a phone, so <b>for my own wedding in 2023</b>, I created a mobile-friendly web app that allows guests to contribute to the experience. Alongside the beautiful, professionally staged photos, I wanted to capture the more candid, family-centered moments, giving attendees a way to view the wedding through each other’s eyes.
+
+    At any point during the wedding, guests are encouraged to pull out their phones and capture any photos they’d like. Upon submission, these photos are automatically uploaded to a private Google Drive account I’ve set up specifically for the event.
+
+    <b>Technical Details:</b>
+    - The app is accessible via custom QR codes (now discontinued) placed strategically around the wedding venue, making it easy for guests to participate.
+
+    - A Google API service account is used to manage and organize all submitted photos securely.
+    
+    - For younger guests, I’ve added a fun Dad Joke generator to keep things light and entertaining.
+    `,
+    image: "/projectAssets/apps/wedding/image.png",
+    category: ProjectCategory.APPS,
+    technologies: [
+      "React",
+      "Google Drive API",
+      "Chakra UI",
+      "Redux",
+      "Azure App Service",
+      "Express.js",
+      "axios",
+    ],
+  },
+  {
+    appImages: [
       "/projectAssets/apps/poolsuite/img1.png",
       "/projectAssets/apps/poolsuite/img2.png",
       "/projectAssets/apps/poolsuite/img3.png",

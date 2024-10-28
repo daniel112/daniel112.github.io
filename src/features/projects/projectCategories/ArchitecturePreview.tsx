@@ -79,6 +79,38 @@ const data: ArchitectureData[] = [
       "https://lucid.app/documents/embedded/74881fe3-a8e3-443b-9b96-7b4bb87c35b9",
   },
   {
+    title: "My Wedding App",
+    description:
+      "Simple architecture diagram of the gamified App I created and used for my own wedding.",
+    image: "/projectAssets/wedding-arc.png", // from public folder
+    details: `
+    This application features a simple and secure architecture, with automated deployment via GitHub Actions triggered on any push to the main branch. A service account manages secure image transfers from the API to a private Google Drive folder. Both the WebApp and API are deployed to their respective Azure resources.
+
+    1. Frontend:
+      - React app built in JavaScript with Chakra UI as the component library.\n
+      - Designed mobile-first for responsiveness.
+
+    2. Backend:
+       - Web API using Express.js and Javascript
+
+    3. External Services:
+       - Google Drive API for image management and security
+    `,
+    category: ProjectCategory.DIAGRAMS,
+    technologies: [
+      "React",
+      "Chakra UI",
+      "Javascript",
+      "Google Drive API",
+      "Google Service Account",
+      "Express.js",
+      "Azure Static Web Apps",
+      "Azure App Service",
+    ],
+    architectureDiagramUrl:
+      "https://lucid.app/documents/embedded/88f123d8-cd8f-404e-ab98-337cca8da08a",
+  },
+  {
     title: "B2B White Label SaaS App",
     description:
       "Early stage architecture diagram of a B2B app focusing on quick white label deploys",
