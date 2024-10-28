@@ -17,6 +17,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import { SOCIAL_MEDIA_URLS } from "../constants";
+import FeedIcon from "@mui/icons-material/Feed";
 
 const socialMediaButtons: SocialMediaButtonProps[] = [
   {
@@ -36,6 +37,12 @@ const socialMediaButtons: SocialMediaButtonProps[] = [
     label: "Email",
     color: "#333",
     url: SOCIAL_MEDIA_URLS.email,
+  },
+  {
+    Icon: FeedIcon,
+    label: "Resume",
+    color: "#022524",
+    url: "https://daniel.dpyo.xyz/resume",
   },
 ];
 

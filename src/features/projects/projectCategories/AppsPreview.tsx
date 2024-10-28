@@ -100,6 +100,41 @@ const data: AppData[] = [
   },
   {
     appImages: [
+      "/projectAssets/apps/poolsuite/img1.png",
+      "/projectAssets/apps/poolsuite/img2.png",
+      "/projectAssets/apps/poolsuite/img3.png",
+      "/projectAssets/apps/poolsuite/img4.png",
+      "/projectAssets/apps/poolsuite/img5.png",
+    ],
+    title: "Mobile: Poolsuite FM",
+    description:
+      "Poolsuite FM is the retro inspired ultra-summer music player. Built with React Native and seamless integrationg with SoundCloud",
+
+    details: `
+    I was recruited by my former CTO to help rewrite a music app using the latest version of React Native (0.68 at the time). 
+    The opportunity was exciting, and I enjoyed collaborating with him to rebuild the app. 
+
+    While the app's functionality was relatively straightforward, customizing the UI proved to be more complex. 
+    Creating a smooth and visually appealing music player was a challenge. 
+    I had to learn how to use <a href="https://github.com/doublesymmetry/react-native-track-player">React-Native-Track-Player</a> and create custom waveform bars using <a href="https://d3js.org/d3-array">D3 libraries</a>.
+    `,
+    image: "/projectAssets/apps/poolsuite/image.png",
+    category: ProjectCategory.APPS,
+    technologies: [
+      "React Native",
+      "D3.js",
+      "Expo",
+      "react-native-track-player",
+      "react-native-reanimated",
+      "Notion",
+      "Contentful",
+      "Flipper",
+      "SoundCloud",
+      "axios",
+    ],
+  },
+  {
+    appImages: [
       "/projectAssets/apps/piedmontese-beef/img1.png",
       "/projectAssets/apps/piedmontese-beef/img2.png",
       "/projectAssets/apps/piedmontese-beef/img3.png",
