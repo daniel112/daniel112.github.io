@@ -120,7 +120,7 @@ const data: AppData[] = [
     - The app is accessible via custom QR codes (now discontinued) placed strategically around the wedding venue, making it easy for guests to participate.
 
     - A Google API service account is used to manage and organize all submitted photos securely.
-    
+
     - For younger guests, I’ve added a fun Dad Joke generator to keep things light and entertaining.
     `,
     image: "/projectAssets/apps/wedding/image.png",
@@ -168,6 +168,35 @@ const data: AppData[] = [
       "Flipper",
       "SoundCloud",
       "axios",
+    ],
+  },
+  {
+    appImages: [
+      "/projectAssets/apps/events/img1.jpeg",
+      "/projectAssets/apps/events/img2.webp",
+      "/projectAssets/apps/events/img3.png",
+      "/projectAssets/apps/events/img4.jpeg",
+    ],
+    title: "Mobile: White-label Events App",
+    description:
+      "White-label native iOS app for seamless communication and collaboration at events, enabling customer-centric engagement from any device, anytime, anywhere.",
+    details: `
+    The app enhances event management, providing companies worldwide with a seamless tool for hosting conferences (typically 1-3 days) to ensure smooth operations and an outstanding attendee experience. We've partnered with prominent clients, including Meta and the Game Developers Conference (GDC).
+    
+    Since taking ownership of the iOS app in 2019, I have managed, updated, and enhanced key features such as:
+    - Offline storage with CoreData\n
+    - Bluetooth geofencing using Gimbal\n
+    - Custom build process that integrates with our internal API to apply client-specific branding and labels for each deployment\n
+    `,
+    image: "/projectAssets/apps/events/image.webp",
+    category: ProjectCategory.APPS,
+    technologies: [
+      "iOS",
+      "Objective-C",
+      "Fastlane",
+      "Gimbal SDK",
+      "Amazon SNS",
+      "Ruby",
     ],
   },
   {
