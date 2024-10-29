@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Card,
@@ -18,6 +18,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import { SOCIAL_MEDIA_URLS } from "../constants";
 import FeedIcon from "@mui/icons-material/Feed";
+import { useLottie } from "lottie-react";
+import heroAnimation from "../assets/lottie/hero.json";
 
 const socialMediaButtons: SocialMediaButtonProps[] = [
   {
@@ -89,19 +91,29 @@ export const ProjectsPage: React.FC = () => {
             >
               Showcasing a portfolio of past and current projects
             </Typography>
-            <Typography
-              variant={isMobile ? "body2" : "subtitle1"}
-              width={isMobile ? "100%" : "70%"}
-              marginY={isMobile ? 1 : 2}
-              color={theme.palette.primary.contrastText}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
             >
-              Throughout my career, I've had the privilege of working on a
-              diverse range of projects, both professionally and personally.
-              Below, you'll find a curated selection of my work. While some
-              earlier projects may no longer be live, I've provided links to
-              archived versions where available, offering a comprehensive view
-              of my journey and growth in the field.
-            </Typography>
+              <Typography
+                variant={isMobile ? "body2" : "subtitle1"}
+                width={isMobile ? "100%" : "70%"}
+                marginY={isMobile ? 1 : 2}
+                color={theme.palette.primary.contrastText}
+              >
+                Throughout my career, I've had the privilege of working on a
+                diverse range of projects, both professionally and personally.
+                Below, you'll find a curated selection of my work. While some
+                earlier projects may no longer be live, I've provided links to
+                archived versions where available, offering a comprehensive view
+                of my journey and growth in the field.
+              </Typography>
+              {!isMobile && <LottieView />}
+            </Box>
           </CardContent>
         </Box>
         <Box sx={{ backgroundColor: theme.palette.background.paper }}>
@@ -112,4 +124,22 @@ export const ProjectsPage: React.FC = () => {
       </Card>
     </Container>
   );
+};
+
+const LottieView = () => {
+  const { View, setSpeed } = useLottie(
+    {
+      animationData: heroAnimation,
+      loop: true,
+      autoplay: true,
+    },
+    {
+      height: "160px",
+    }
+  );
+  useEffect(() => {
+    setSpeed(0.5);
+  }, [setSpeed]);
+
+  return View;
 };
