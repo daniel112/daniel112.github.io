@@ -38,6 +38,35 @@ const data: ArchitectureData[] = [
     ],
   },
   {
+    title: "Full Stack SaaS with Azure",
+    description:
+      "SaaS application architecture with NoSQL, Azure Function, Bot, Azure AI and more",
+    image: "/projectAssets/alchemy-arc.png", // from public folder
+    details: `
+    This architecture diagram represents a system that integrates various Azure services, Microsoft Graph API, and Alchemy API to enable user authentication, feedback processing, sentiment analysis, and notifications\n
+    This setup is designed for secure user authentication, robust feedback handling with AI-driven insights, and a flexible notification system through Teams or Email, all backed by scalable Azure services.\n
+    The design outlines the following:
+    1. Users and Authentication\n
+    2. Core Web API and Data Processing\n
+    3. Feedback Handling and Sentiment Analysis\n
+    4. Notification System (Teams Bot and Email)\n
+    5. Data Storage and Insights\n
+    `,
+    architectureDiagramUrl:
+      "https://lucid.app/documents/embedded/3035e12e-09c5-4384-9695-1dbda14cb31c#",
+    category: ProjectCategory.DIAGRAMS,
+    technologies: [
+      "Azure",
+      "Azure OpenAI",
+      "Azure Function",
+      "Azure Bot",
+      "Teams Notification",
+      "Azure AD",
+      "Bicep",
+      "Azure Application Insights",
+    ],
+  },
+  {
     title: ".NET Auth API Microservice",
     description:
       "Microservice sequence diagram for a custom Auth API I worked on for a project utilizing EF Core and Azure KeyVault",
