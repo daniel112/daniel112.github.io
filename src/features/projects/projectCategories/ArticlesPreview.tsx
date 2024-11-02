@@ -3,6 +3,19 @@ import { ProjectPreviewCard } from "./ProjectPreviewCard";
 
 const data: ProjectData[] = [
   {
+    title: "ElasticSearch Custom Connectors",
+    description:
+      "Sharing my recent experience building a solution leveraging ElasticSearch to centralize millions of documents.",
+    image:
+      "https://miro.medium.com/v2/resize:fit:810/1*RKQ146zONpmWefgXh1Bk9g.png",
+    category: ProjectCategory.ARTICLES,
+    technologies: [],
+    link: {
+      label: "Article",
+      url: "https://medium.com/@danielyo112/til-elasticsearch-custom-connectors-ff414040d34a",
+    },
+  },
+  {
     title: "Deep linking in React Native",
     description:
       "I wrote this guide to help developers implement deep linking with push notifications in React Native apps, based on my experience at Knock.",
