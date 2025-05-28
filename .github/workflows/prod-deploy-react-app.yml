@@ -1,4 +1,4 @@
-name: Deploy React app to Azure Static Web Apps (Prod)
+name: Deploy React app to GitHub Pages
 
 env:
   APP_LOCATION: "." # location of your client code
@@ -8,31 +8,31 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # allows manual execution through GH CLI, API or browser interface
+  workflow_dispatch:
 
-# permission granted as the GITHUB_TOKEN is concerned
 permissions:
-  issues: write
-  contents: read
+  contents: write # Required to push to gh-pages branch
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    name: Build and Deploy
+    name: Build and Deploy to GitHub Pages
     steps:
       - uses: actions/checkout@v3
-      - name: "Setup node Version"
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "22.9.x"
-      - name: "dependencies install"
-        shell: bash
-        run: "npm install"
-      - name: Build And Deploy
-        uses: Azure/static-web-apps-deploy@v1
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_REACT_API_TOKEN_PROD }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: ${{ env.APP_LOCATION }}
-          output_location: ${{ env.OUTPUT_LOCATION }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.OUTPUT_LOCATION }}
