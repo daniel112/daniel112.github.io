@@ -7,7 +7,7 @@ import { Box, Toolbar, useTheme } from "@mui/material";
 import { Navigation } from "../Navigation/Navigation";
 import { MenuToggle } from "../Navigation/MenuToggle";
 import { useDimensions } from "../hooks/useDimensions";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useSideMenu } from "../store/reducers/sideMenuReducer";
 import { PATH } from "../Navigation/path";
 import StarryBackground from "../components/StarryBackground";
@@ -67,6 +67,7 @@ export const RootPage: FC = () => {
     actions: { setOpen },
   } = useSideMenu();
   const navigate = useNavigate();
+  const location = useLocation();
   const isOpen = sideMenu.open;
 
   useEffect(() => {

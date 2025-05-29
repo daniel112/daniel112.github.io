@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { RootPage } from "./Pages/RootPage";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -8,30 +8,20 @@ import { ResumePage } from "./Pages/ResumePage";
 import { PATH } from "./Navigation/path";
 import { ProjectsPage } from "./Pages/ProjectsPage";
 
-const router = createBrowserRouter([
-  {
-    path: PATH.HOME,
-    Component: RootPage,
-    children: [
-      {
-        path: PATH.RESUME,
-        Component: ResumePage,
-      },
-      {
-        path: PATH.PROJECTS,
-        Component: ProjectsPage,
-      },
-    ],
-  },
-]);
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Provider store={store}>
         <Box id="main" height={"100vh"} width={"100vw"}>
-          <RouterProvider router={router} />
+          <HashRouter>
+            <Routes>
+              <Route path={PATH.HOME} element={<RootPage />}>
+                <Route path={PATH.RESUME} element={<ResumePage />} />
+                <Route path={PATH.PROJECTS} element={<ProjectsPage />} />
+              </Route>
+            </Routes>
+          </HashRouter>
         </Box>
       </Provider>
     </ThemeProvider>

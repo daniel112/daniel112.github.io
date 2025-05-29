@@ -44,7 +44,7 @@ const socialMediaButtons: SocialMediaButtonProps[] = [
     Icon: FeedIcon,
     label: "Resume",
     color: "#022524",
-    url: "https://daniel.dpyo.xyz/resume",
+    url: "#/resume",
   },
 ];
 
